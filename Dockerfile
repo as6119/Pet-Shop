@@ -1,5 +1,5 @@
-# 버그 패치가 된 최신 안정화 이미지 사용
-FROM tomcat:9.0.89-jdk17-openjdk-slim
+# 명칭이 정확한 최신 안정화 이미지로 변경
+FROM tomcat:9.0.89-jdk17-slim
 
 # 자바 버그 무시 옵션 강제 주입
 ENV JAVA_OPTS="-Dfile.encoding=UTF-8 -Djdk.lang.processReaperUseDefaultStackSize=true"
