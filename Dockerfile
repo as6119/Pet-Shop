@@ -1,5 +1,5 @@
-# 가장 오류가 적은 자바 8 환경으로 복구
-FROM tomcat:9.0-jre8-openjdk-slim
+# 기존의 jre8 대신 jdk21 버전으로 변경합니다.
+FROM tomcat:9.0-jdk21-openjdk-slim
 
 ENV JAVA_OPTS="-Dfile.encoding=UTF-8"
 
