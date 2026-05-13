@@ -1,5 +1,5 @@
-# 가장 표준적인 톰캣 9 + 자바 11 이미지 사용
-FROM tomcat:9.0-jdk11-openjdk-slim
+# Railway에서 가장 잘 작동하는 표준 톰캣 9 이미지
+FROM tomcat:9.0-slim
 
 # 자바 내부 버그 방지 및 한글 설정
 ENV JAVA_OPTS="-Dfile.encoding=UTF-8 -Djdk.lang.processReaperUseDefaultStackSize=true"
