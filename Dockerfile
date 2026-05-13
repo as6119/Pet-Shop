@@ -1,11 +1,14 @@
-FROM tomcat:9.0-jdk11-openjdk-slim
+# 버그가 해결된 최신 톰캣 9 이미지를 사용합니다.
+FROM tomcat:9.0-jre11-openjdk-slim
 
+# Railway 환경에서 발생하는 자바 컨테이너 버그를 방지하는 옵션 추가
+ENV JAVA_OPTS="-Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Dfile.encoding=UTF-8"
+
+# 기존 앱 제거 및 프로젝트 복사
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY ./Shoping /usr/local/tomcat/webapps/ROOT
 
-# Railway 환경에서 포트를 동적으로 할당받기 위한 설정
-ENV PORT 8080
+# 포트 설정
 EXPOSE 8080
 
-# 톰캣의 server.xml을 수정하지 않고 포트를 강제하는 설정
 CMD ["catalina.sh", "run"]
